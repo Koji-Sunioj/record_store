@@ -4,8 +4,9 @@ database admining
 1. download or install from command line: https://www.postgresql.org/download/
 
 2. log into psql
-
+```
 sudo -u postgres psql
+```
 
 3. create user with a password
 
@@ -47,14 +48,15 @@ pip install -r requirements.txt
 
 4. create a .env file in the root folder for the database string. the variable namse are in db.py
 
-touch .env
+vim .env
 
-      * paste the following:
-      *	HOST=localhost
-      * DATABASE=record_store
-      * USER=my_user
-      * PASSWORD=whateverYouWant
-
+5. paste the following:
+```
+HOST=localhost
+DATABASE=record_store
+USER=my_user
+PASSWORD=whateverYouWant
+```
 5. run app (in debug mode)
 
 flask --app app --debug run

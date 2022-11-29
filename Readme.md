@@ -1,3 +1,5 @@
+I made my first flask project sometime last year. I thought I would check into it again, after learning the conventions of creating REST APIs at Integrify bootcamp
+
 ## database admining
 
 1. download or install from command line: https://www.postgresql.org/download/

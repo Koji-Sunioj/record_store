@@ -1,5 +1,7 @@
 I made my first flask project sometime last year. I thought I would check into it again, after learning the conventions of creating REST APIs at Integrify bootcamp
 
+edit 30.11: created "pointers" branch to experiment offloading conditionals to a dictionary which points to functions
+
 ## database admining
 
 1. download or install from command line: https://www.postgresql.org/download/

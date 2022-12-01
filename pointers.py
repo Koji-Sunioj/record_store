@@ -12,6 +12,7 @@ return_object = {
     "POST":{"message":"sucessfully created"},
     "GET": {},
     "GET_album":{},
-    "DELETE_album":{"message":"successfully deleted"},
-    "PATCH_album":{"messaged":"successfully updated"},
+    "DELETE_album":{"message":"successfully deleted"} ,
+    "PATCH_album":{"message":"successfully updated"} ,
 }
+

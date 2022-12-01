@@ -16,7 +16,6 @@ def to_dict(cursor,values):
     return dict((column,value) for column, value in zip(columns,values))
 
 def table_scan(args=None):
-    print(config["DATABASE"])
     conn = get_db_connection()
     cur = conn.cursor()
     query = "select album_id, artist, title, price, release_date,stock from albums order by album_id asc;"
@@ -42,32 +41,32 @@ def create_album(values):
     return created
 
 def patch_album(payload):
-    values = payload["data"]
     conn = get_db_connection()
     cur = conn.cursor()
     command = "update albums set artist=%s, title=%s,release_date=%s,stock=%s,price=%s where album_id=%s returning *;"
-    cur.execute(command,(values["artist"],values["title"],values["release_date"],values["stock"],values["price"],payload["album_id"]))
+    cur.execute(command,(payload["artist"],payload["title"],payload["release_date"],payload["stock"],payload["price"],payload["album_id"]))
     updated = to_dict(cur,cur.fetchone())
     conn.commit()
     cur.close()
     conn.close()
     return updated
 
-def get_album(payload):
+def get_album(album_id):
     conn = get_db_connection()
     cur = conn.cursor()
     query = "select album_id, artist, title, price, release_date,stock from albums where album_id=%s;"
-    cur.execute(query,(payload["album_id"],))
+    cur.execute(query,(album_id,))
     album = to_dict(cur,cur.fetchone())
     cur.close()
     conn.close()
     return album
 
-def delete_album(payload):
+def delete_album(album_id):
     conn = get_db_connection()
     cur = conn.cursor()
     command = "delete from albums where album_id=%s;"
-    cur.execute(command,(payload["album_id"],))
+    cur.execute(command,(album_id,))
     conn.commit()
     cur.close()
     conn.close()
+    return {}
